@@ -38,7 +38,7 @@ PAGES = [
      ("ติดต่อ", "Contact"), ("ขอใบเสนอราคา", "Request a quote"), ["contact"]),
 ]
 
-ORG = {"@context": "https://schema.org", "@type": "Organization", "name": "Prime Atosphere",
+ORG = {"@context": "https://schema.org", "@type": "Organization", "name": "Prime Atosphere", "legalName": "Prime Atosphere (Thailand) Co., Ltd.",
        "url": SITE + "/", "logo": SITE + "/assets/img/logo.png", "email": "BD@primeatosphere.com", "description": "Thermal management solutions: refrigerants, cooling fluids, cleaning solvents and automation.",
        "address": {"@type": "PostalAddress", "streetAddress": "888/66 Moo 3, Bang Pu Mai", "addressLocality": "Mueang Samut Prakan",
                    "addressRegion": "Samut Prakan", "postalCode": "10280", "addressCountry": "TH"}}
@@ -101,7 +101,7 @@ def render(path, title, desc, eyebrow, heading, parts):
 </main>
 <footer>
   <div class="wrap">
-    <div><img src="{root}assets/img/logo-white.png" alt="Prime Atosphere" width="146" height="60" style="display:block;margin-bottom:10px">{bi("โซลูชันการจัดการความร้อนครบวงจร", "Thermal Management Solutions")}<br>BD@primeatosphere.com</div>
+    <div><img src="{root}assets/img/logo-white.png" alt="Prime Atosphere" width="146" height="60" style="display:block;margin-bottom:10px">{bi("บริษัท ไพรม์ อโตสเฟียร์ (ประเทศไทย) จำกัด", "Prime Atosphere (Thailand) Co., Ltd.")}<br>{bi("โซลูชันการจัดการความร้อนครบวงจร", "Thermal Management Solutions")}<br>BD@primeatosphere.com</div>
     <div>{bi("เลขประจำตัวผู้เสียภาษี", "Tax ID")} 0115567012305<br>© 2026 Prime Atosphere</div>
   </div>
 </footer>
