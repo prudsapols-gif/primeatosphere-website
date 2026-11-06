@@ -18,7 +18,11 @@ a{color:inherit}
 /* header */
 header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:24px;height:68px}
-.logo{display:flex;align-items:center;gap:8px;text-decoration:none;line-height:.95}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{height:52px;width:auto;display:block}
+.logo .logo-dark{display:none}
+:root[data-theme="dark"] .logo .logo-light{display:none}:root[data-theme="dark"] .logo .logo-dark{display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo .logo-light{display:none}:root:not([data-theme="light"]) .logo .logo-dark{display:block}}
 .logo b{font-family:Poppins;font-weight:700;color:var(--navy);letter-spacing:.5px;font-size:18px;display:block}
 :root[data-theme="dark"] .logo b{color:#fff}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo b{color:#fff}}

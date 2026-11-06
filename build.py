@@ -39,7 +39,7 @@ PAGES = [
 ]
 
 ORG = {"@context": "https://schema.org", "@type": "Organization", "name": "Prime Atosphere",
-       "url": SITE + "/", "email": "BD@primeatosphere.com", "description": "Thermal management solutions: refrigerants, cooling fluids, cleaning solvents and automation.",
+       "url": SITE + "/", "logo": SITE + "/assets/img/logo.png", "email": "BD@primeatosphere.com", "description": "Thermal management solutions: refrigerants, cooling fluids, cleaning solvents and automation.",
        "address": {"@type": "PostalAddress", "streetAddress": "888/66 Moo 3, Bang Pu Mai", "addressLocality": "Mueang Samut Prakan",
                    "addressRegion": "Samut Prakan", "postalCode": "10280", "addressCountry": "TH"}}
 
@@ -75,7 +75,9 @@ def render(path, title, desc, eyebrow, heading, parts):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE}/{path}">
-<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{root}assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="{root}assets/img/apple-touch-icon.png">
+<meta property="og:image" content="{SITE}/assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}assets/style.css">
@@ -85,8 +87,8 @@ def render(path, title, desc, eyebrow, heading, parts):
 <header>
   <div class="wrap nav">
     <a class="logo" href="{root or './'}" aria-label="Prime Atosphere">
-      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 6 L32 20 L8 34" fill="none" stroke="#1dbf9a" stroke-width="7" stroke-linejoin="round"/><path d="M8 13 L20 20 L8 27" fill="none" stroke="#0e3a5b" stroke-width="4" stroke-linejoin="round"/></svg>
-      <span><b>PRIME<br>ATOSPHERE</b><small>Cooling : Refrigerant : Automation</small></span>
+      <img class="logo-light" src="{root}assets/img/logo.png" alt="Prime Atosphere" width="138" height="57">
+      <img class="logo-dark" src="{root}assets/img/logo-white.png" alt="" width="138" height="57">
     </a>
     <nav class="menu">
 {nav}
@@ -99,7 +101,7 @@ def render(path, title, desc, eyebrow, heading, parts):
 </main>
 <footer>
   <div class="wrap">
-    <div><b>Prime Atosphere</b><br>{bi("โซลูชันการจัดการความร้อนครบวงจร", "Thermal Management Solutions")}<br>BD@primeatosphere.com</div>
+    <div><img src="{root}assets/img/logo-white.png" alt="Prime Atosphere" width="146" height="60" style="display:block;margin-bottom:10px">{bi("โซลูชันการจัดการความร้อนครบวงจร", "Thermal Management Solutions")}<br>BD@primeatosphere.com</div>
     <div>{bi("เลขประจำตัวผู้เสียภาษี", "Tax ID")} 0115567012305<br>© 2026 Prime Atosphere</div>
   </div>
 </footer>
@@ -115,6 +117,7 @@ def main():
     os.makedirs(os.path.join(DIST, "assets"))
     shutil.copy(os.path.join(SRC, "style.css"), os.path.join(DIST, "assets/style.css"))
     shutil.copy(os.path.join(SRC, "main.js"), os.path.join(DIST, "assets/main.js"))
+    shutil.copytree(os.path.join(SRC, "img"), os.path.join(DIST, "assets/img"))
     for name in ("favicon.svg", "404.html", "CNAME"):
         if os.path.exists(os.path.join(SRC, name)):
             shutil.copy(os.path.join(SRC, name), os.path.join(DIST, name))
