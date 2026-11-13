@@ -24,6 +24,18 @@ PAGES = [
     ("products/", "ผลิตภัณฑ์ | สารทำความเย็น ของไหลระบายความร้อน สารทำความสะอาด | Prime Atosphere",
      "THERMASOLV, PROMOSOLV NEO B2, สารทำความเย็น Climalife, AGC AMOLEA™ และ ASAHIKLIN™ สำหรับอุตสาหกรรมไทย",
      ("ผลิตภัณฑ์", "Products"), ("ผลิตภัณฑ์ของเรา", "Our products"), ["products-detail", "cta"]),
+    ("water-treatment/", "ผลิตภัณฑ์เคมีสำหรับระบบน้ำอุตสาหกรรม | Anti Scale, Biocide, Sodium Hypochlorite | Prime Atosphere",
+     "สารควบคุมตะกรัน สารควบคุมจุลินทรีย์ และ Sodium Hypochlorite 10% สำหรับระบบน้ำหล่อเย็นอุตสาหกรรม บรรจุ 20 กก. พร้อม SDS ไทย–อังกฤษ",
+     ("ผลิตภัณฑ์", "Products"), ("ผลิตภัณฑ์เคมีสำหรับระบบน้ำอุตสาหกรรม", "Industrial water treatment chemicals"), ["wt-category", "cta"]),
+    ("water-treatment/anti-scale-for-cooling/", "Anti Scale for Cooling สารควบคุมตะกรันหอหล่อเย็น | Prime Atosphere",
+     "Anti Scale for Cooling สารควบคุมตะกรันสำหรับระบบน้ำหอหล่อเย็น (HEDP) บรรจุ 20 กก. พร้อม SDS ไทย–อังกฤษ",
+     None, None, ["wt-anti-scale-for-cooling", "cta"]),
+    ("water-treatment/biocide-for-cooling/", "Biocide for Cooling สารควบคุมจุลินทรีย์ระบบน้ำหล่อเย็น | Prime Atosphere",
+     "Biocide for Cooling สารควบคุมจุลินทรีย์สำหรับระบบน้ำหล่อเย็น บรรจุ 20 กก. พร้อม SDS ไทย–อังกฤษ",
+     None, None, ["wt-biocide-for-cooling", "cta"]),
+    ("water-treatment/sodium-hypochlorite-10/", "Sodium Hypochlorite 10% (NaOCl) | Prime Atosphere",
+     "Sodium Hypochlorite 10% (NaOCl) Available chlorine ขั้นต่ำ 10% บรรจุ 20 กก. พร้อม SDS ไทย–อังกฤษ",
+     None, None, ["wt-sodium-hypochlorite-10", "cta"]),
     ("solutions/", "โซลูชันตามอุตสาหกรรม | HVAC-R โรงงาน โฟม ดาต้าเซ็นเตอร์ | Prime Atosphere",
      "โซลูชันการจัดการความร้อนสำหรับโรงงาน ช่างแอร์และชิลเลอร์ ผู้ผลิตโฟม และดาต้าเซ็นเตอร์",
      ("โซลูชัน", "Solutions"), ("โซลูชันตามกลุ่มลูกค้า", "Solutions by industry"), ["solutions", "cta"]),
@@ -118,6 +130,8 @@ def main():
     shutil.copy(os.path.join(SRC, "style.css"), os.path.join(DIST, "assets/style.css"))
     shutil.copy(os.path.join(SRC, "main.js"), os.path.join(DIST, "assets/main.js"))
     shutil.copytree(os.path.join(SRC, "img"), os.path.join(DIST, "assets/img"))
+    if os.path.isdir(os.path.join(SRC, "sds")):
+        shutil.copytree(os.path.join(SRC, "sds"), os.path.join(DIST, "sds"))
     for name in ("favicon.svg", "404.html", "CNAME"):
         if os.path.exists(os.path.join(SRC, name)):
             shutil.copy(os.path.join(SRC, name), os.path.join(DIST, name))
